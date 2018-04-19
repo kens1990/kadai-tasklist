@@ -1,21 +1,43 @@
+<% if logged_in? %>
+
+<div class="row">
+    <aside class="col-xs-4">
+  <ul>
+<p>ログイン完了ユーザ:
+<%= current_user.name %>
+</p>
+   </aside>
+   
+   
 <h1>タスク一覧</h1>
+   <%= @tasks.inspect %>
+   
+   <div class="col-xs-8">
+<%= render 'tasks/tasks', tasks:@tasks %>          
+          
+      </div>
 
-<ul>
     
-<% @tasks.each do |task| %>
 
-   <li>
-       
-<%= link_to task.id, task %>
-
-<%= task.content %>
-&gt;
-<%= task.status %>    
-       
-</li>
-
-<% end %>
 
 </ul>
+</div>
 
+<ul>
 <%= link_to '新規タスクの登録', new_task_path %>
+</ul>
+<ul>
+<%= link_to 'ユーザの詳細', user_path(@user) %>
+
+</ul>
+<% else %>
+
+<div class="center jumbotron">
+    <div class="text-center">
+        <h1>Welcome to the tasklist</h1>
+        
+<%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
+
+    </div>
+</div>
+<% end %>

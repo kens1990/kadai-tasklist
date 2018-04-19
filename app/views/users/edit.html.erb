@@ -1,0 +1,50 @@
+<h1>id:
+<%= @user.id %>
+の編集ページ</h1>
+
+<%= form_for(@user) do |f| %>
+
+     <div class="form-group">
+         
+<%= f.label :name, 'Name' %>
+
+<%= f.text_field :name, class: 'form-control' %>
+
+     </div>
+     
+     <div class="form-group">
+         
+<%= f.label :email, 'Email' %>
+
+<%= f.email_field :email, class: 'form-control' %>
+
+     </div>
+     
+     <div class="form-group">
+
+<%= f.label :password, 'Password' %>
+
+<%= f.password_field :password, class: 'form-control' %>
+
+     </div>
+     
+     <div class="form-group">
+         
+<%= f.label :pasword_confirmation, 'Confirmation' %>
+
+<%= f.password_field :password_COnfirmation, class: 'form-control' %>
+         
+     </div>
+     
+     
+
+<%= f.submit '変更', class:'btn btn-primary btn-block' %>
+
+<% end %>
+
+<%= link_to 'ユーザのページに戻る', user_path(@user) %>
+
+<%= link_to 'トップページに戻る', root_url %>
+
+    
+</h1>
